@@ -1,0 +1,44 @@
+{
+  "name": "dummgraphql",
+  "version": "1.0.0",
+  "description": "a testing front end and backend",
+  "main": ".app.js",
+  "scripts": {
+    "start": "nodemon ./app.js",
+    "build": "NODE_ENV=production & webpack",
+    "dev": "NODE_ENV=development & nodemon ./app.js & webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "apollo-boost": "^0.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15",
+    "lodash.flowright": "^3.5.0",
+    "mongoose": "^5.8.9",
+    "react": "^16.12.0",
+    "react-apollo": "^3.1.3",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.2",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-hot-middleware": "^2.25.0"
+  }
+}
