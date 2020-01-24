@@ -10,15 +10,16 @@ const app = express();
 // allow cross-origin requests
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, './client/public')));
+app.use(express.static(path.join(__dirname, './client/public')));  //serving anythin in the public folder as needed
 
 app.get('/build/bundle.js', (req, res) => {
   console.log('in server.js');
-  res.sendFile(path.join(__dirname, './build/bundle.js'));
+  res.sendFile(path.join(__dirname, './build/bundle.js'));  //servering the bundle
 });
 
 // bind express with graphql
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', graphqlHTTP({  //this is ht eexpress graphql middleware, it takes in the schema, and if we navigate straight 
+    //to http://localhost:4545/graphql, we get the graphiql canned UI
     schema,
     graphiql: true
 }));

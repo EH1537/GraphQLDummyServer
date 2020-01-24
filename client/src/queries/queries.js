@@ -18,9 +18,18 @@ const getBooksQuery = gql`
     }
 `;
 
+const getISBNsQuery = gql`
+    {
+        isbns {
+            isbn
+            id
+        }
+    }
+`;
+
 const addBookMutation = gql`
-    mutation AddBook($name: String!, $genre: String!, $authorId: ID!){
-        addBook(name: $name, genre: $genre, authorId: $authorId){
+    mutation AddBook($name: String!, $genre: String!, $authorId: ID!, $isbnId: ID!){
+        addBook(name: $name, genre: $genre, authorId: $authorId, isbnId: $isbnId){
             name
             id
         }
@@ -36,6 +45,15 @@ const addAuthorMutation = gql`
     }
 `;
 
+const addISBNMutation = gql`
+    mutation addISBN($isbn: String!) {
+      addISBN(isbn: $isbn){
+        isbn
+        id
+     }
+    }
+`;
+
 
 const getBookQuery = gql`
     query GetBook($id: ID){
@@ -43,6 +61,10 @@ const getBookQuery = gql`
             id
             name
             genre
+            isbn {
+              id
+              isbn
+            }
             author {
                 id
                 name
@@ -56,4 +78,4 @@ const getBookQuery = gql`
     }
 `;
 
-export { getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation };
+export { getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getISBNsQuery, addISBNMutation };

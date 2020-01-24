@@ -3,27 +3,24 @@ const Mongoose = require('mongoose').Mongoose;
 const Schema = mongoose.Schema;
 
 // const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-lpc8k.azure.mongodb.net/test?retryWrites=true&w=majority"
-const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-lpc8k.azure.mongodb.net/test?retryWrites=true&w=majority"
+const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-rcp2u.mongodb.net/test?retryWrites=true&w=majority"
 
 
-let mongooseVA = new Mongoose();
+let mongooseISBN = new Mongoose();
 
-mongooseVA.connect(MONGO_URI, {
+mongooseISBN.connect(MONGO_URI, {
   // options for the connect method to parse the URI
   useNewUrlParser: true,
   useUnifiedTopology: true,
   // sets the name of the DB that our collections are part of
-  dbName: 'books'
+  dbName: 'isbn'
 })
-.then(()=>console.log('Connected to Mongo DB for Books (AZURE IN VIRGINIA).'))
+.then(()=>console.log('Connected to Mongo DB for ISBN (AWS IN Oregon).'))
 .catch(err=>console.log(err));
 
 
-const bookSchema = new Schema({
-    name: String,
-    genre: String,
-    authorId: String,
-    isbnId: String
+const isbnSchema = new Schema({
+    isbn: String,
 });
 
-module.exports = mongooseVA.model('Book', bookSchema);
+module.exports = mongooseISBN.model('ISBN', isbnSchema);
