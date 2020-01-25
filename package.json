@@ -4,7 +4,7 @@
   "description": "a testing front end and backend",
   "main": ".app.js",
   "scripts": {
-    "start": "nodemon ./app.js",
+    "start": "node ./app.js",
     "build": "NODE_ENV=production & webpack",
     "dev": "NODE_ENV=development & nodemon ./app.js & webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
