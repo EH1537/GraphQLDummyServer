@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
 const Mongoose = require('mongoose').Mongoose;
 const Schema = mongoose.Schema;
-
-// const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-lpc8k.azure.mongodb.net/test?retryWrites=true&w=majority"
-const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-lpc8k.azure.mongodb.net/test?retryWrites=true&w=majority"
+const urls = require('./urls');
 
 
-let mongooseVA = new Mongoose();
+const MONGO_URI = urls.books;
 
-mongooseVA.connect(MONGO_URI, {
+
+let mongooseBooks = new Mongoose();
+
+mongooseBooks.connect(MONGO_URI, {
   // options for the connect method to parse the URI
   useNewUrlParser: true,
   useUnifiedTopology: true,
   // sets the name of the DB that our collections are part of
   dbName: 'books'
 })
-.then(()=>console.log('Connected to Mongo DB for Books (AZURE IN VIRGINIA).'))
+.then(()=>console.log('Connected to Mongo DB for Books (AZURE IN California).'))
 .catch(err=>console.log(err));
 
 
@@ -26,4 +27,4 @@ const bookSchema = new Schema({
     isbnId: String
 });
 
-module.exports = mongooseVA.model('Book', bookSchema);
+module.exports = mongooseBooks.model('Book', bookSchema);

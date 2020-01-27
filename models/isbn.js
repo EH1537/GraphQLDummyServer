@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const Mongoose = require('mongoose').Mongoose;
 const Schema = mongoose.Schema;
+const urls = require('./urls')
 
-// const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-lpc8k.azure.mongodb.net/test?retryWrites=true&w=majority"
-const MONGO_URI = "mongodb+srv://admin:ilovetesting@cluster0-rcp2u.mongodb.net/test?retryWrites=true&w=majority"
-
+const MONGO_URI = urls.isbn;
 
 let mongooseISBN = new Mongoose();
 
@@ -14,8 +13,8 @@ mongooseISBN.connect(MONGO_URI, {
   useUnifiedTopology: true,
   // sets the name of the DB that our collections are part of
   dbName: 'isbn'
-})
-.then(()=>console.log('Connected to Mongo DB for ISBN (AWS IN Oregon).'))
+})//
+.then(()=>console.log('Connected to Mongo DB for ISBN (Google IN Belgium).'))
 .catch(err=>console.log(err));
 
 
