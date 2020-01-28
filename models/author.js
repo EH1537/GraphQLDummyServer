@@ -3,7 +3,7 @@ const Mongoose = require('mongoose').Mongoose;
 const Schema = mongoose.Schema;
 const urls = require('./urls')
 
-const MONGO_URL = urls.books;
+const MONGO_URL = urls.authors;
 
 let MongoAuthor = new Mongoose();
 
